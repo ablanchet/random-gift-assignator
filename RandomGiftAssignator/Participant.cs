@@ -43,7 +43,7 @@ namespace RandomGiftAssignator
             using (var rdr = File.OpenText("mail.html"))
                 message = string.Format(rdr.ReadToEnd(), GiftedParticipant.Firstname);
 
-            var mailMessage = new MailMessage( "antoine.blanchet@gmail.com", Email, "Le cadeau à faire jeudi !", message ) { IsBodyHtml = true };
+            var mailMessage = new MailMessage( "sender@domain.local", Email, "Le cadeau à faire jeudi !", message ) { IsBodyHtml = true };
 
             using( var smtpClient = new SmtpClient() )
                 smtpClient.Send( mailMessage );
